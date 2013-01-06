@@ -79,3 +79,12 @@ app.get('*', function(req, res){
 var port = process.env.PORT || 5000;
 app.listen(port);
 console.log('Listening on port ' + port);
+
+/*
+Additional resources:
+    Github gist API: http://developer.github.com/v3/gists/
+    Angular + Express: http://briantford.com/blog/angular-express.html
+    AngularStrap: http://mgcrea.github.com/angular-strap/
+    Fort Awesome: http://fortawesome.github.com/Font-Awesome/
+    Console-extras: https://github.com/unconed/console-extras.js
+*/
