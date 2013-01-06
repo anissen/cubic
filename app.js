@@ -16,7 +16,8 @@ app.get('/', function(req, res){
 app.get(/^\/(\d+)[.]json$/, function(req, res) {
   var id = req.params[0];
   //console.log('requested download of gist with id ' + id);
-  queuedRequestsForGist[id] = [];
+  if (!queuedRequestsForGist[id])
+    queuedRequestsForGist[id] = [];
   api.getGist(id, function(gist) {
     res.send(gist);
     var queuedRequests = queuedRequestsForGist[id];
@@ -35,6 +36,8 @@ app.get(/^\/d\/(\d+)\/$/, function(req, res) {
   //console.log('requested gist index.html page with id ' + id);
   var filename = 'index.html';
   //console.log('Still downloading gist: ' + gistDownloadQueue[id]);
+  if (!queuedRequestsForGist[id])
+    queuedRequestsForGist[id] = [];
   queuedRequestsForGist[id].push(function() {
     api.getFile(id, filename, function(content) { res.send(content); }, function(file) { res.sendfile(file); });
   });
