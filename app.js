@@ -70,6 +70,6 @@ app.get('*', function(req, res){
   res.send('Nothing to see here, move along!');
 });
 
-var port = 3000;
+var port = process.env.PORT || 5000;
 app.listen(port);
 console.log('Listening on port ' + port);
