@@ -15,11 +15,11 @@ h1 {
   letter-spacing: -2px;
   margin: .3em 0 .1em 0;
 }
-
+/*
 h2 {
   margin-top: 2em;
 }
-
+*/
 h1, h2 {
   text-rendering: optimizeLegibility;
 }

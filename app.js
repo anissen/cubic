@@ -6,13 +6,15 @@ var queuedRequestsForGist = {};
 
 app.use(express.static(__dirname + '/public'));
 
+// Get front page
+// Route: /
 app.get('/', function(req, res){
   //console.log('requested /');
   res.sendfile('views/index.html');
 });
 
 // Get gist json
-// /123.json
+// Route: /123.json
 app.get(/^\/(\d+)[.]json$/, function(req, res) {
   var id = req.params[0];
   //console.log('requested download of gist with id ' + id);
@@ -30,7 +32,7 @@ app.get(/^\/(\d+)[.]json$/, function(req, res) {
 });
 
 // Get gist index.html
-// /d/123/
+// Route: /d/123/
 app.get(/^\/d\/(\d+)\/$/, function(req, res) {
   var id = req.params[0];
   //console.log('requested gist index.html page with id ' + id);
@@ -44,16 +46,16 @@ app.get(/^\/d\/(\d+)\/$/, function(req, res) {
 });
 
 // Get gist file
-// /d/123/file
+// Route: /d/123/file
 app.get(/^\/d\/(\d+)\/(\S+)$/, function(req, res) {
   var id = req.params[0];
   var filename = req.params[1];
-  //console.log('requested gist file "' + filename + '" with id ' + id);
+  console.log('requested gist file "' + filename + '" with id ' + id);
   api.getFile(id, filename, function(content) { res.send(content); }, function(file) { res.sendfile(file); });
 });
 
 // Get gist page
-// /123
+// Route: /123
 app.get(/^\/(\d+)$/, function(req, res) {
   var id = req.params[0];
   //console.log('requested gist page with id ' + id);
@@ -61,12 +63,13 @@ app.get(/^\/(\d+)$/, function(req, res) {
 });
 
 // Get user page
-// /username
+// Route: /username
 app.get(/^\/(\w+)$/, function(req, res){
   //console.log('requested user');
   res.send('TODO: Get user with name ' + req.params[0]);
 });
 
+// Route: * (i.e. not any of the above)
 app.get('*', function(req, res){
   console.log('requested *');
   console.log(req.params);

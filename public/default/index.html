@@ -6,22 +6,35 @@
       <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
       <style>
         body {
-          font-family: Monospace;
+          font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
           background-color: #f0f0f0;
           margin: 0px;
           overflow: hidden;
         }
+
+        .info {
+          position: absolute;
+          width: 100%;
+          text-align: center;
+        }
       </style>
     </head>
     <body>
-      <h2 style="position: absolute; color: white; width: 100%; text-align: center;">This is the default html file</h2>
-      <h4 id="info" style="color: white;">info goes here</h4>
+      <div id="info" style="color: gray; font-size: small; font-weight: bold;"></div>
       <div id="three-canvas"></div>
+      <script src="http://code.jquery.com/jquery.min.js"></script>
       <script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
       <script src="http://mrdoob.github.com/three.js/examples/js/controls/TrackballControls.js"></script>
       <script src="http://mrdoob.github.com/three.js/examples/js/libs/stats.min.js"></script>
+      <script src="/showdown.min.js?20120730"></script>
 
       <script src="setup.js"></script>
       <script src="script.js"></script>
+      <script>
+        $.ajax({url: "readme.md"})
+          .done(function(data) {
+            $("#info").html(new Showdown.converter().makeHtml(data))
+          });
+      </script>
     </body>
 </html>
