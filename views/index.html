@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="/favicon.png">
+  <title>Cubes</title>
+  <link href="/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+  <link href="/vendor/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+  <link href="/style.css?20120613" rel="stylesheet" />
+</head>
+<body>
+  <h1 style="margin-top:.8em;">Cubes</h1>
+  <hr/>
+
+  <p class="lead"><i>Cubes</i> is a simple service designed to bootstrap and view experiments made with <a href="http://threejs.org">Three.js</a>. It works by referencing code and files hosted on <a href="https://gist.github.com/">GitHub Gist</a>. Simply code up a Three.js experiment and then reference <a href="http://cubes.heroku.com/">cubes.heroku.com/</a>[gist id] to allow others to view your experiment and source code!</p>
+
+  <h2>Three.js bootstrapping</h2>
+  <p>
+    It is based on <a href="http://bl.ocks.org">bl.ocks</a> by the exellent <a href="http://bost.ocks.org/mike/">Mike Bostock</a>. However, this service is oppioniated and has the following convensions:
+    <div class="well">
+      The file to render is called <code>index.html</code>. If you do not supply your own index.html then then a default, three.js-bootstrapped, index.html is used instead. The default file references the following files:
+      <ul>
+        <li><code>setup.js</code> for setting up a three.js scene</li>
+        <li><code>script.js</code> for your own code. Both of these files can be overwritten by your own files with the same name.</li>
+      </ul>
+      All files (i.e. <code>index.html</code>, <code>setup.js</code> and <code>script.js</code>) can be overwritten by your own files.
+    </div>
+  </p>
+
+  <h2>Example</h2>
+
+  <p>See <a href="/anissen">Anders Nissen</a>’s simple <a href="/1353700">example scene</a>.
+
+  <!--
+  <h2>Credits</h2>
+
+  <p><b>Cubes</b> is run by <a rel="author" href="http://andersnissen.com">Anders Nissen</a> and is not affiliated with bl.ocks.org or GitHub.
+  -->
+
+  <footer>
+    <aside>January 6, 2013</aside>
+    <a rel="author" href="http://andersnissen.com">Anders Nissen</a>
+  </footer>
+</body>
+</html>
